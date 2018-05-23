@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=LAUNCH-ME
+Comment=environment preparator be 3
+Exec=bash -c '"$(dirname "$1")"/be3-prepare.sh "$( cd "$(dirname "$1")" ; pwd -P )"' dummy %k
+#Icon=be2bigdata.png
+Terminal=true
+Type=Application
