@@ -7,6 +7,8 @@
 
 cwd=$1
 echo -e "\n******\n\nPreparing the environment...\nAuthor : Gianluca QUERCINI\nYear : 2017 - 2018\n\n******\n"
+firefox&
+sleep 1
 pkill -f firefox
 cd ~/.mozilla/firefox/
 find . -maxdepth 1 -type d -name "*default" | \
