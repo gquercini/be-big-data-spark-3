@@ -86,9 +86,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 1,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Initialization successful\n"
+     ]
+    }
+   ],
    "source": [
     "import findspark\n",
     "findspark.init()\n",
@@ -145,7 +153,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 2,
    "metadata": {
     "autoscroll": "json-false",
     "ein.tags": [
@@ -156,7 +164,15 @@
      "slide_type": "-"
     }
    },
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Done!\n"
+     ]
+    }
+   ],
    "source": [
     "wordList = [\"Al\", \"Ani\", \"Jackie\", \"Lalitha\", \"Mark\", \"Neil\", \"Nick\", \"Shirin\"]\n",
     "words = sc.parallelize(wordList)\n",
@@ -204,9 +220,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 3,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "done!\n"
+     ]
+    }
+   ],
    "source": [
     "'''\n",
     "As mentioned before, the function filter takes in a predicate that is itself a function (returning a boolean value).\n",
@@ -256,9 +280,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 4,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Neil\n"
+     ]
+    }
+   ],
    "source": [
     "'''\n",
     "REMEMBER: the variable nNames has been defined in the cell above, so \n",
@@ -315,7 +347,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 5,
    "metadata": {
     "autoscroll": "json-false",
     "ein.tags": [
@@ -325,7 +357,25 @@
      "slide_type": "-"
     }
    },
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Number of exception lines  5\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "['2017-10-06 13:12:26.097+0000 ERROR Failed to start Neo4j: Starting Neo4j failed: Component \\'org.neo4j.server.database.LifecycleManagingDatabase@2814f71a\\' was successfully initialized, but failed to start. Please see the attached cause exception \"Format version is not supported (resource BufferedChecksumIndexInput(MMapIndexInput(path=\"/Users/quercini_gia/Documents/software/neo4j-community-3.2.5/data/databases/social-network/upgrade/index/lucene/relationship/crosslinks/segments_1\"))): -11 (needs to be between 1071082519 and 1071082519). This version of Lucene only supports indexes created with release 4.0 and later.\". Starting Neo4j failed: Component \\'org.neo4j.server.database.LifecycleManagingDatabase@2814f71a\\' was successfully initialized, but failed to start. Please see the attached cause exception \"Format version is not supported (resource BufferedChecksumIndexInput(MMapIndexInput(path=\"/Users/quercini_gia/Documents/software/neo4j-community-3.2.5/data/databases/social-network/upgrade/index/lucene/relationship/crosslinks/segments_1\"))): -11 (needs to be between 1071082519 and 1071082519). This version of Lucene only supports indexes created with release 4.0 and later.\".']"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "data_file = \"./data/neo4j.log\"\n",
     "\n",
@@ -385,9 +435,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 6,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "done\n"
+     ]
+    }
+   ],
    "source": [
     "r1 = sc.parallelize([1, 2, 3, 4])\n",
     "r2 = sc.parallelize([3, 4, 5, 6, 7])\n",
@@ -420,9 +478,18 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 7,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Elements of RDD square  [1, 4, 9, 16]\n",
+      "Elements of the RDD half  [1.5, 2.0, 2.5, 3.0, 3.5]\n"
+     ]
+    }
+   ],
    "source": [
     "square = r1.map(lambda x : x*x)\n",
     "half = r2.map(lambda x: x/2)\n",
@@ -465,9 +532,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 8,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Elements of RDD squares  [[1, 1], [2, 4], [3, 9], [4, 16]]\n"
+     ]
+    }
+   ],
    "source": [
     "squares = r1.map(lambda x : [x, x*x])\n",
     "print(\"Elements of RDD squares \", squares.collect())"
@@ -499,9 +574,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 9,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Elements of RDD squares  [1, 1, 2, 4, 3, 9, 4, 16]\n"
+     ]
+    }
+   ],
    "source": [
     "squares = r1.flatMap(lambda x : [x, x*x])\n",
     "print(\"Elements of RDD squares \", squares.collect())"
@@ -527,9 +610,22 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 10,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Elements of RDD r1  [1, 2, 3, 4]\n",
+      "Elements of RDD r2  [3, 4, 5, 6, 7]\n",
+      "Elements of RDD union  [1, 2, 3, 4, 3, 4, 5, 6, 7]\n",
+      "Elements of RDD intesection  [3, 4]\n",
+      "Elements of RDD subtract  [1, 2]\n",
+      "Elements of RDD cartesian  [(1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (2, 3), (2, 4), (2, 5), (2, 6), (2, 7), (3, 3), (3, 4), (3, 5), (3, 6), (3, 7), (4, 3), (4, 4), (4, 5), (4, 6), (4, 7)]\n"
+     ]
+    }
+   ],
    "source": [
     "union = r1.union(r2)\n",
     "intersection = r1.intersection(r2)\n",
@@ -566,9 +662,18 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 11,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Elements of the RDD union:  [1, 2, 3, 4, 3, 4, 5, 6, 7]\n",
+      "Elements of the RDD union (with no duplicates):  [1, 2, 3, 4, 5, 6, 7]\n"
+     ]
+    }
+   ],
    "source": [
     "nodup = union.distinct()\n",
     "print(\"Elements of the RDD union: \", union.collect())\n",
@@ -625,9 +730,18 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 12,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Elements of the RDD r1  [1, 2, 3, 4]\n",
+      "Sum of the elements of the RDD r1:  10\n"
+     ]
+    }
+   ],
    "source": [
     "'''\n",
     "The function passed to the reduce MUST take in two arguments \n",
@@ -662,9 +776,25 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 13,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Elements of the RDD union  [1, 2, 3, 4, 3, 4, 5, 6, 7]\n",
+      "Occurrences of each element in the RDD union:\n",
+      "1  -->  1  occurrences\n",
+      "2  -->  1  occurrences\n",
+      "3  -->  2  occurrences\n",
+      "4  -->  2  occurrences\n",
+      "5  -->  1  occurrences\n",
+      "6  -->  1  occurrences\n",
+      "7  -->  1  occurrences\n"
+     ]
+    }
+   ],
    "source": [
     "occurrences = union.countByValue()\n",
     "print(\"Elements of the RDD union \", union.collect())\n",
@@ -726,9 +856,118 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 14,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Number of words  208240\n",
+      "Top-100 most frequent words\n",
+      "the ---> 14065\n",
+      "of ---> 6440\n",
+      "and ---> 6257\n",
+      "a ---> 4535\n",
+      "to ---> 4491\n",
+      "in ---> 4050\n",
+      "that ---> 2900\n",
+      "his ---> 2485\n",
+      "it ---> 2343\n",
+      "i ---> 1930\n",
+      "but ---> 1763\n",
+      "he ---> 1729\n",
+      "as ---> 1698\n",
+      "with ---> 1690\n",
+      "is ---> 1672\n",
+      "was ---> 1618\n",
+      "for ---> 1574\n",
+      "all ---> 1464\n",
+      "this ---> 1351\n",
+      "at ---> 1295\n",
+      "by ---> 1169\n",
+      "not ---> 1121\n",
+      "from ---> 1071\n",
+      "him ---> 1035\n",
+      "so ---> 1030\n",
+      "on ---> 1028\n",
+      "be ---> 1024\n",
+      "whale ---> 891\n",
+      "one ---> 875\n",
+      "you ---> 851\n",
+      "had ---> 765\n",
+      "now ---> 759\n",
+      "there ---> 755\n",
+      "have ---> 751\n",
+      "or ---> 686\n",
+      "were ---> 674\n",
+      "they ---> 639\n",
+      "which ---> 617\n",
+      "then ---> 614\n",
+      "me ---> 606\n",
+      "some ---> 604\n",
+      "their ---> 603\n",
+      "when ---> 591\n",
+      "my ---> 584\n",
+      "are ---> 584\n",
+      "an ---> 583\n",
+      "like ---> 567\n",
+      "no ---> 566\n",
+      "upon ---> 560\n",
+      "what ---> 537\n",
+      "into ---> 517\n",
+      "out ---> 509\n",
+      "more ---> 499\n",
+      "up ---> 496\n",
+      "if ---> 469\n",
+      "its ---> 457\n",
+      "them ---> 450\n",
+      "old ---> 436\n",
+      "man ---> 433\n",
+      "we ---> 426\n",
+      "would ---> 421\n",
+      "ahab ---> 417\n",
+      "ye ---> 416\n",
+      "been ---> 408\n",
+      "over ---> 397\n",
+      "other ---> 393\n",
+      "these ---> 387\n",
+      "ship ---> 378\n",
+      "will ---> 377\n",
+      "only ---> 369\n",
+      "such ---> 364\n",
+      "sea ---> 363\n",
+      "whales ---> 363\n",
+      "though ---> 362\n",
+      "down ---> 358\n",
+      "yet ---> 339\n",
+      "who ---> 330\n",
+      "time ---> 321\n",
+      "her ---> 321\n",
+      "any ---> 320\n",
+      "very ---> 317\n",
+      "long ---> 313\n",
+      "still ---> 307\n",
+      "about ---> 305\n",
+      "those ---> 302\n",
+      "than ---> 300\n",
+      "do ---> 297\n",
+      "captain ---> 292\n",
+      "before ---> 291\n",
+      "great ---> 289\n",
+      "said ---> 288\n",
+      "has ---> 287\n",
+      "here ---> 284\n",
+      "seemed ---> 280\n",
+      "must ---> 279\n",
+      "two ---> 278\n",
+      "last ---> 273\n",
+      "most ---> 273\n",
+      "head ---> 263\n",
+      "thou ---> 262\n"
+     ]
+    }
+   ],
    "source": [
     "import operator;\n",
     "import re;\n",
@@ -747,10 +986,24 @@
     "    text = text.map(lambda line: regex.sub('', line))\n",
     "    \n",
     "    '''\n",
-    "    **************************************************\n",
-    "    COMPLETE STEP 2 THROUGH 4\n",
-    "    **************************************************\n",
+    "    Step 2.\n",
+    "    Obtain the RDD containing the words in the file.\n",
+    "    Note that the function line.split() returns the list of words in a line. \n",
+    "    Therefore, each element of the RDD words would be a list, shouldn't we use flatMap.\n",
     "    '''\n",
+    "    words = text.flatMap(lambda line: line.split(\" \"))\n",
+    "\n",
+    "    '''\n",
+    "    Step 3.\n",
+    "    Filter out the words with length 0.\n",
+    "    '''\n",
+    "    words = words.filter(lambda word: len(word) > 0)\n",
+    "    \n",
+    "    '''\n",
+    "    Step 4.\n",
+    "    Lowercase all words of the RDD words\n",
+    "    '''\n",
+    "    words = words.map(lambda word: word.lower())\n",
     "    \n",
     "    '''\n",
     "    Step 5.\n",
@@ -826,7 +1079,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 15,
    "metadata": {
     "autoscroll": "json-false",
     "ein.tags": [
@@ -836,7 +1089,116 @@
      "slide_type": "-"
     }
    },
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Number of words after stopword removal  102358\n",
+      "Top-100 most frequent words\n",
+      "whale ,  891\n",
+      "one ,  875\n",
+      "old ,  436\n",
+      "man ,  433\n",
+      "ahab ,  417\n",
+      "ye ,  416\n",
+      "ship ,  378\n",
+      "sea ,  363\n",
+      "whales ,  363\n",
+      "though ,  362\n",
+      "time ,  321\n",
+      "long ,  313\n",
+      "captain ,  292\n",
+      "great ,  289\n",
+      "said ,  288\n",
+      "seemed ,  280\n",
+      "must ,  279\n",
+      "two ,  278\n",
+      "last ,  273\n",
+      "head ,  263\n",
+      "see ,  257\n",
+      "way ,  253\n",
+      "little ,  247\n",
+      "white ,  247\n",
+      "boat ,  241\n",
+      "round ,  239\n",
+      "three ,  235\n",
+      "sperm ,  232\n",
+      "first ,  229\n",
+      "stubb ,  227\n",
+      "men ,  224\n",
+      "every ,  223\n",
+      "say ,  223\n",
+      "us ,  221\n",
+      "well ,  221\n",
+      "much ,  218\n",
+      "queequeg ,  211\n",
+      "good ,  195\n",
+      "hand ,  194\n",
+      "go ,  183\n",
+      "side ,  183\n",
+      "thing ,  181\n",
+      "look ,  178\n",
+      "boats ,  175\n",
+      "made ,  174\n",
+      "away ,  173\n",
+      "chapter ,  172\n",
+      "come ,  170\n",
+      "starbuck ,  169\n",
+      "many ,  161\n",
+      "water ,  158\n",
+      "deck ,  158\n",
+      "far ,  157\n",
+      "seen ,  156\n",
+      "day ,  156\n",
+      "eyes ,  153\n",
+      "ships ,  152\n",
+      "sir ,  151\n",
+      "sort ,  151\n",
+      "cried ,  149\n",
+      "back ,  148\n",
+      "thought ,  147\n",
+      "world ,  147\n",
+      "part ,  147\n",
+      "know ,  145\n",
+      "whole ,  137\n",
+      "oh ,  137\n",
+      "right ,  136\n",
+      "aye ,  135\n",
+      "life ,  134\n",
+      "crew ,  133\n",
+      "air ,  133\n",
+      "thus ,  132\n",
+      "night ,  128\n",
+      "tell ,  128\n",
+      "soon ,  128\n",
+      "thee ,  128\n",
+      "came ,  126\n",
+      "take ,  126\n",
+      "hands ,  125\n",
+      "things ,  125\n",
+      "feet ,  123\n",
+      "small ,  122\n",
+      "pequod ,  121\n",
+      "till ,  119\n",
+      "something ,  118\n",
+      "think ,  116\n",
+      "line ,  116\n",
+      "god ,  115\n",
+      "thy ,  113\n",
+      "found ,  113\n",
+      "towards ,  113\n",
+      "full ,  111\n",
+      "along ,  110\n",
+      "times ,  110\n",
+      "dont ,  110\n",
+      "another ,  110\n",
+      "nothing ,  109\n",
+      "make ,  109\n",
+      "whaling ,  108\n"
+     ]
+    }
+   ],
    "source": [
     "def preprocess(text, stopwords):\n",
     "    '''\n",
@@ -873,11 +1235,7 @@
     "    '''\n",
     "    Step 5 Remove stop words.\n",
     "    '''\n",
-    "    '''\n",
-    "    **************************************************\n",
-    "    COMPLETE STEP 5\n",
-    "    **************************************************\n",
-    "    '''\n",
+    "    words = words.subtract(stopwords)\n",
     "    \n",
     "    # Returns the words\n",
     "    return words\n",
@@ -942,9 +1300,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 16,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[('timberheads', 1), ('timberheads', 1), ('parchmentlike', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('hailed', 1), ('unfractioned', 1), ('adoration', 1), ('adoration', 1), ('acted', 1), ('acted', 1), ('acted', 1), ('hebrew', 1), ('hebrew', 1), ('hebrew', 1), ('hillock', 1), ('otherunless', 1), ('holes', 1), ('holes', 1), ('grown', 1), ('grown', 1), ('grown', 1), ('grown', 1), ('grown', 1), ('grown', 1), ('grown', 1), ('grown', 1), ('grown', 1), ('grown', 1), ('grown', 1), ('grown', 1), ('grown', 1), ('grown', 1), ('grown', 1), ('skilful', 1), ('skilful', 1), ('waycut', 1), ('bigotry', 1), ('girth', 1), ('girth', 1), ('girth', 1), ('girth', 1), ('girth', 1), ('girth', 1), ('guineas', 1), ('basement', 1), ('basement', 1), ('hadst', 1), ('solitaries', 1), ('solitaries', 1), ('anacharsis', 1), ('talks', 1), ('wailing', 1), ('nowthe', 1), ('nowthe', 1), ('feminine', 1), ('feminine', 1), ('proving', 1), ('upliftings', 1), ('preparations', 1), ('preparations', 1), ('shadeowing', 1), ('remunerative', 1), ('snowy', 1), ('snowy', 1), ('snowy', 1), ('snowy', 1), ('snowy', 1), ('snowy', 1), ('snowy', 1), ('snowy', 1), ('turnpike', 1), ('yarman', 1), ('yarman', 1), ('yarman', 1), ('yarman', 1), ('yarman', 1), ('disappearing', 1), ('disappearing', 1), ('disappearing', 1), ('downtown', 1), ('affect', 1), ('affect', 1)]\n"
+     ]
+    }
+   ],
    "source": [
     "kvwords = words.map(lambda word : (word, 1))\n",
     "print(kvwords.take(100))"
@@ -983,9 +1349,119 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 17,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[('whale', 891),\n",
+       " ('one', 875),\n",
+       " ('old', 436),\n",
+       " ('man', 433),\n",
+       " ('ahab', 417),\n",
+       " ('ye', 416),\n",
+       " ('ship', 378),\n",
+       " ('whales', 363),\n",
+       " ('sea', 363),\n",
+       " ('though', 362),\n",
+       " ('time', 321),\n",
+       " ('long', 313),\n",
+       " ('captain', 292),\n",
+       " ('great', 289),\n",
+       " ('said', 288),\n",
+       " ('seemed', 280),\n",
+       " ('must', 279),\n",
+       " ('two', 278),\n",
+       " ('last', 273),\n",
+       " ('head', 263),\n",
+       " ('see', 257),\n",
+       " ('way', 253),\n",
+       " ('little', 247),\n",
+       " ('white', 247),\n",
+       " ('boat', 241),\n",
+       " ('round', 239),\n",
+       " ('three', 235),\n",
+       " ('sperm', 232),\n",
+       " ('first', 229),\n",
+       " ('stubb', 227),\n",
+       " ('men', 224),\n",
+       " ('say', 223),\n",
+       " ('every', 223),\n",
+       " ('us', 221),\n",
+       " ('well', 221),\n",
+       " ('much', 218),\n",
+       " ('queequeg', 211),\n",
+       " ('good', 195),\n",
+       " ('hand', 194),\n",
+       " ('go', 183),\n",
+       " ('side', 183),\n",
+       " ('thing', 181),\n",
+       " ('look', 178),\n",
+       " ('boats', 175),\n",
+       " ('made', 174),\n",
+       " ('away', 173),\n",
+       " ('chapter', 172),\n",
+       " ('come', 170),\n",
+       " ('starbuck', 169),\n",
+       " ('many', 161),\n",
+       " ('deck', 158),\n",
+       " ('water', 158),\n",
+       " ('far', 157),\n",
+       " ('seen', 156),\n",
+       " ('day', 156),\n",
+       " ('eyes', 153),\n",
+       " ('ships', 152),\n",
+       " ('sir', 151),\n",
+       " ('sort', 151),\n",
+       " ('cried', 149),\n",
+       " ('back', 148),\n",
+       " ('part', 147),\n",
+       " ('world', 147),\n",
+       " ('thought', 147),\n",
+       " ('know', 145),\n",
+       " ('oh', 137),\n",
+       " ('whole', 137),\n",
+       " ('right', 136),\n",
+       " ('aye', 135),\n",
+       " ('life', 134),\n",
+       " ('crew', 133),\n",
+       " ('air', 133),\n",
+       " ('thus', 132),\n",
+       " ('night', 128),\n",
+       " ('thee', 128),\n",
+       " ('tell', 128),\n",
+       " ('soon', 128),\n",
+       " ('came', 126),\n",
+       " ('take', 126),\n",
+       " ('hands', 125),\n",
+       " ('things', 125),\n",
+       " ('feet', 123),\n",
+       " ('small', 122),\n",
+       " ('pequod', 121),\n",
+       " ('till', 119),\n",
+       " ('something', 118),\n",
+       " ('think', 116),\n",
+       " ('line', 116),\n",
+       " ('god', 115),\n",
+       " ('thy', 113),\n",
+       " ('towards', 113),\n",
+       " ('found', 113),\n",
+       " ('full', 111),\n",
+       " ('times', 110),\n",
+       " ('dont', 110),\n",
+       " ('another', 110),\n",
+       " ('along', 110),\n",
+       " ('nothing', 109),\n",
+       " ('make', 109),\n",
+       " ('whaling', 108)]"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "'''\n",
     "kvwords is an RDD where each element is (w, 1), w is a word from the novel Moby Dick.\n",
@@ -1039,9 +1515,119 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 18,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[('whale', 891),\n",
+       " ('one', 875),\n",
+       " ('old', 436),\n",
+       " ('man', 433),\n",
+       " ('ahab', 417),\n",
+       " ('ye', 416),\n",
+       " ('ship', 378),\n",
+       " ('whales', 363),\n",
+       " ('sea', 363),\n",
+       " ('though', 362),\n",
+       " ('time', 321),\n",
+       " ('long', 313),\n",
+       " ('captain', 292),\n",
+       " ('great', 289),\n",
+       " ('said', 288),\n",
+       " ('seemed', 280),\n",
+       " ('must', 279),\n",
+       " ('two', 278),\n",
+       " ('last', 273),\n",
+       " ('head', 263),\n",
+       " ('see', 257),\n",
+       " ('way', 253),\n",
+       " ('little', 247),\n",
+       " ('white', 247),\n",
+       " ('boat', 241),\n",
+       " ('round', 239),\n",
+       " ('three', 235),\n",
+       " ('sperm', 232),\n",
+       " ('first', 229),\n",
+       " ('stubb', 227),\n",
+       " ('men', 224),\n",
+       " ('say', 223),\n",
+       " ('every', 223),\n",
+       " ('us', 221),\n",
+       " ('well', 221),\n",
+       " ('much', 218),\n",
+       " ('queequeg', 211),\n",
+       " ('good', 195),\n",
+       " ('hand', 194),\n",
+       " ('go', 183),\n",
+       " ('side', 183),\n",
+       " ('thing', 181),\n",
+       " ('look', 178),\n",
+       " ('boats', 175),\n",
+       " ('made', 174),\n",
+       " ('away', 173),\n",
+       " ('chapter', 172),\n",
+       " ('come', 170),\n",
+       " ('starbuck', 169),\n",
+       " ('many', 161),\n",
+       " ('deck', 158),\n",
+       " ('water', 158),\n",
+       " ('far', 157),\n",
+       " ('seen', 156),\n",
+       " ('day', 156),\n",
+       " ('eyes', 153),\n",
+       " ('ships', 152),\n",
+       " ('sir', 151),\n",
+       " ('sort', 151),\n",
+       " ('cried', 149),\n",
+       " ('back', 148),\n",
+       " ('part', 147),\n",
+       " ('world', 147),\n",
+       " ('thought', 147),\n",
+       " ('know', 145),\n",
+       " ('oh', 137),\n",
+       " ('whole', 137),\n",
+       " ('right', 136),\n",
+       " ('aye', 135),\n",
+       " ('life', 134),\n",
+       " ('crew', 133),\n",
+       " ('air', 133),\n",
+       " ('thus', 132),\n",
+       " ('night', 128),\n",
+       " ('thee', 128),\n",
+       " ('tell', 128),\n",
+       " ('soon', 128),\n",
+       " ('came', 126),\n",
+       " ('take', 126),\n",
+       " ('hands', 125),\n",
+       " ('things', 125),\n",
+       " ('feet', 123),\n",
+       " ('small', 122),\n",
+       " ('pequod', 121),\n",
+       " ('till', 119),\n",
+       " ('something', 118),\n",
+       " ('think', 116),\n",
+       " ('line', 116),\n",
+       " ('god', 115),\n",
+       " ('thy', 113),\n",
+       " ('towards', 113),\n",
+       " ('found', 113),\n",
+       " ('full', 111),\n",
+       " ('times', 110),\n",
+       " ('dont', 110),\n",
+       " ('another', 110),\n",
+       " ('along', 110),\n",
+       " ('nothing', 109),\n",
+       " ('make', 109),\n",
+       " ('whaling', 108)]"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "occurrences = kvwords.groupByKey()\n",
     "occurrences = occurrences.map(lambda x : (x[0], len(x[1])))\n",
@@ -1080,9 +1666,117 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 19,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Top-100 most frequent words\n",
+      "whale ,  891\n",
+      "one ,  875\n",
+      "old ,  436\n",
+      "man ,  433\n",
+      "ahab ,  417\n",
+      "ye ,  416\n",
+      "ship ,  378\n",
+      "sea ,  363\n",
+      "whales ,  363\n",
+      "though ,  362\n",
+      "time ,  321\n",
+      "long ,  313\n",
+      "captain ,  292\n",
+      "great ,  289\n",
+      "said ,  288\n",
+      "seemed ,  280\n",
+      "must ,  279\n",
+      "two ,  278\n",
+      "last ,  273\n",
+      "head ,  263\n",
+      "see ,  257\n",
+      "way ,  253\n",
+      "little ,  247\n",
+      "white ,  247\n",
+      "boat ,  241\n",
+      "round ,  239\n",
+      "three ,  235\n",
+      "sperm ,  232\n",
+      "first ,  229\n",
+      "stubb ,  227\n",
+      "men ,  224\n",
+      "every ,  223\n",
+      "say ,  223\n",
+      "us ,  221\n",
+      "well ,  221\n",
+      "much ,  218\n",
+      "queequeg ,  211\n",
+      "good ,  195\n",
+      "hand ,  194\n",
+      "go ,  183\n",
+      "side ,  183\n",
+      "thing ,  181\n",
+      "look ,  178\n",
+      "boats ,  175\n",
+      "made ,  174\n",
+      "away ,  173\n",
+      "chapter ,  172\n",
+      "come ,  170\n",
+      "starbuck ,  169\n",
+      "many ,  161\n",
+      "water ,  158\n",
+      "deck ,  158\n",
+      "far ,  157\n",
+      "seen ,  156\n",
+      "day ,  156\n",
+      "eyes ,  153\n",
+      "ships ,  152\n",
+      "sir ,  151\n",
+      "sort ,  151\n",
+      "cried ,  149\n",
+      "back ,  148\n",
+      "thought ,  147\n",
+      "world ,  147\n",
+      "part ,  147\n",
+      "know ,  145\n",
+      "whole ,  137\n",
+      "oh ,  137\n",
+      "right ,  136\n",
+      "aye ,  135\n",
+      "life ,  134\n",
+      "crew ,  133\n",
+      "air ,  133\n",
+      "thus ,  132\n",
+      "night ,  128\n",
+      "tell ,  128\n",
+      "soon ,  128\n",
+      "thee ,  128\n",
+      "came ,  126\n",
+      "take ,  126\n",
+      "hands ,  125\n",
+      "things ,  125\n",
+      "feet ,  123\n",
+      "small ,  122\n",
+      "pequod ,  121\n",
+      "till ,  119\n",
+      "something ,  118\n",
+      "think ,  116\n",
+      "line ,  116\n",
+      "god ,  115\n",
+      "thy ,  113\n",
+      "found ,  113\n",
+      "towards ,  113\n",
+      "full ,  111\n",
+      "along ,  110\n",
+      "times ,  110\n",
+      "dont ,  110\n",
+      "another ,  110\n",
+      "nothing ,  109\n",
+      "make ,  109\n",
+      "whaling ,  108\n"
+     ]
+    }
+   ],
    "source": [
     "occurrences = sorted(kvwords.countByKey().items(), key=operator.itemgetter(1))\n",
     "# Reverse the order\n",
@@ -1148,7 +1842,7 @@
     "<br>\n",
     "HINT:\n",
     "<ol>\n",
-    "<li> Your program needs to go through all the documents in each of the five folders of the BBC collection. Click <a href=\"https://stackoverflow.com/questions/10377998/how-can-i-iterate-over-files-in-a-given-directory\">here</a> to find out how to loop over the files of a directory in Python.\n",
+    "<li> Your program needs to go through all the documents in each of the five folders of the BBC collection. Use the function $getFiles()$ to get the list of all filenames in the collection.\n",
     "<li> To preprocess the text of a document, you can use the function $preprocess()$ defined above. The RDD $words$ returned by this function contains a word as many times as it appears in a document. Since for an inverted index we just need to know that a word is in a specific document, you should remove the duplicates from the RDD $words$.\n",
     "</ol>\n",
     "</font>\n",
@@ -1159,9 +1853,24 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 24,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The following documents contain the word  family\n",
+      "./data/bbc/entertainment/005.txt\n",
+      "./data/bbc/entertainment/002.txt\n",
+      "./data/bbc/entertainment/003.txt\n",
+      "./data/bbc/politics/001.txt\n",
+      "./data/bbc/sport/004.txt\n",
+      "./data/bbc/tech/006.txt\n",
+      "./data/bbc/tech/004.txt\n"
+     ]
+    }
+   ],
    "source": [
     "import operator;\n",
     "import re;\n",
@@ -1178,13 +1887,58 @@
     "    ld = iindex.lookup(word)[0]\n",
     "    for d in ld:\n",
     "        print(d)\n",
-    "        \n",
     "\n",
     "'''\n",
-    "**************************************************\n",
-    "    COMPLETE THE PROGRAM\n",
-    "**************************************************\n",
-    "'''"
+    "Get all the textual files.\n",
+    "'''\n",
+    "def getFiles():\n",
+    "    files=[]\n",
+    "    # The five topics (also, the names of the subdirectories under directory bbc)\n",
+    "    topics = ['business', 'entertainment', 'politics', 'sport', 'tech']\n",
+    "    for topic in topics:\n",
+    "    # Current directory\n",
+    "        cd = \"./data/bbc/\"+topic+\"/\"\n",
+    "        # For each document under the current topic\n",
+    "        for document in os.listdir(cd):\n",
+    "            # Get the name of the current document\n",
+    "            filename = cd + os.fsdecode(document)\n",
+    "            # This is to ensure that  we do not get any hidden file by mistake \n",
+    "            if not filename.endswith(\".txt\"):\n",
+    "                continue\n",
+    "            files.append(filename)\n",
+    "    return files\n",
+    "\n",
+    "'''\n",
+    "First step: Map part. \n",
+    "Create a Pair RDD, where each element (w, d) is such that w is a word and d is the \n",
+    "filename of the document that contains the word.\n",
+    "'''\n",
+    "\n",
+    "stopwords = sc.textFile(\"./data/stopwords.txt\")\n",
+    "\n",
+    "# Initialize the pair RDD.\n",
+    "kv = sc.parallelize([])\n",
+    "\n",
+    "# Get all files\n",
+    "files = getFiles()\n",
+    "\n",
+    "for file in files:\n",
+    "    # Obtain an RDD with the textual content of the document\n",
+    "    text = sc.textFile(file);\n",
+    "    # Preproces the text. Obtain the words\n",
+    "    words = preprocess(text, stopwords);\n",
+    "    # Remove the duplicates\n",
+    "    words = words.distinct()\n",
+    "    # Create a Pair RDD, where each pair maps a word w to the current document\n",
+    "    words = words.map(lambda x : (x, file))\n",
+    "    # Merge this Pair RDD with kv\n",
+    "    kv = kv.union(words)\n",
+    "        \n",
+    "# Finally, we group by key the pairs in the RDD kv to obtain the inverted index        \n",
+    "iindex = kv.groupByKey()\n",
+    "\n",
+    "# We look up the word \"family\" in the inverted index:\n",
+    "lookup(iindex, \"family\")\n"
    ]
   },
   {
@@ -1229,7 +1983,7 @@
     "<p align=\"justify\">\n",
     "<font size=\"3\" color='#91053d'>**Write a Spark application that creates the co-occurrence matrix of the documents in the BBC collection. Print the top-20 most frequent co-occurrences.**\n",
     "<br>\n",
-    "HINT: as before, use the function $preprocess()$ and remove the duplicate words.\n",
+    "HINT: as before, use the function $preprocess()$ and remove the duplicate words qnd the function $getFiles()$ to get the list of all documents in the collection.\n",
     "</font>\n",
     "</p>\n",
     "\n",
@@ -1238,26 +1992,80 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 25,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "'\\n**************************************************\\n    COMPLETE THE PROGRAM\\n**************************************************\\n'"
+       "[(('also', 'said'), 24),\n",
+       " (('said', 'world'), 20),\n",
+       " (('new', 'said'), 19),\n",
+       " (('said', 'year'), 17),\n",
+       " (('also', 'world'), 17),\n",
+       " (('one', 'said'), 16),\n",
+       " (('last', 'said'), 15),\n",
+       " (('said', 'set'), 15),\n",
+       " (('said', 'time'), 15),\n",
+       " (('said', 'years'), 14)]"
       ]
      },
-     "execution_count": 1,
+     "execution_count": 25,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
+    "\n",
     "'''\n",
-    "**************************************************\n",
-    "    COMPLETE THE PROGRAM\n",
-    "**************************************************\n",
-    "'''"
+    "Function that implements the Map task.\n",
+    "Takes in: the list of words from a document d.\n",
+    "Returns: the list containing the key-value pairs ((w_i, w_j), 1) for all words (w_i, w_j) in the document d.\n",
+    "'''\n",
+    "def Map(words):\n",
+    "    kvpairs = []\n",
+    "    for i in range(0, len(words)):\n",
+    "        for j in range(i+1, len(words)):  \n",
+    "            wi = words[i]\n",
+    "            wj = words[j]\n",
+    "            # we must have wi < wj\n",
+    "            if wi > wj:\n",
+    "                temp = wi\n",
+    "                wi = wj\n",
+    "                wj = temp\n",
+    "            kvpairs.append(((wi, wj), 1))\n",
+    "    return kvpairs\n",
+    "            \n",
+    "'''\n",
+    "Function that implements the Reduce task.\n",
+    "Takes in: the RDD containing all the key-value pairs output by the Map task.\n",
+    "Returns: the RDD with the co-occurrence matrix.\n",
+    "'''\n",
+    "def Reduce(kv):\n",
+    "    return kv.reduceByKey(lambda x, y : x + y)\n",
+    "\n",
+    "# The stop words\n",
+    "stopwords = sc.textFile(\"./data/stopwords.txt\")\n",
+    "\n",
+    "files = getFiles()\n",
+    "\n",
+    "# Initialize the RDD that will contain the pairs output by the Map task.\n",
+    "kv = sc.parallelize([])\n",
+    "# Iterate over all topics\n",
+    "for file in files:\n",
+    "    # Obtain an RDD with the textual content of the document\n",
+    "    text = sc.textFile(file)\n",
+    "    # Preproces the text. Obtain the words\n",
+    "    words = preprocess(text, stopwords)\n",
+    "    # Remove the duplicates\n",
+    "    words = words.distinct()\n",
+    "    # Invoke the map task and appends the output of the map to the RDD kv\n",
+    "    kv = kv.union(sc.parallelize(Map(words.collect())))\n",
+    "\n",
+    "# Reduce task\n",
+    "matrix = Reduce(kv)\n",
+    "matrix = matrix.sortBy(lambda x: x[1], ascending=False)\n",
+    "matrix.take(10)"
    ]
   },
   {
@@ -1299,15 +2107,45 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 26,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "similarity  1.0\n"
+     ]
+    }
+   ],
    "source": [
     "'''\n",
-    "**************************************************\n",
-    "    COMPLETE THE PROGRAM\n",
-    "**************************************************\n",
-    "'''"
+    "The Jaccard score.\n",
+    "Takes in: two RDDs with the words of two documents d1, d2\n",
+    "Returns: the Jaccard similarity of the two documents.\n",
+    "'''\n",
+    "def jaccard(d1w, d2w):\n",
+    "    intersect = d1w.intersection(d2w)\n",
+    "    union = d1w.union(d2w).distinct()\n",
+    "    sim = (intersect.count() / union.count())    \n",
+    "    return sim\n",
+    "\n",
+    "# The stop words\n",
+    "stopwords = sc.textFile(\"./data/stopwords.txt\")\n",
+    "\n",
+    "# The two input documents.\n",
+    "d1 = sc.textFile(\"./data/bbc/politics/001.txt\")\n",
+    "d2 = sc.textFile(\"./data/bbc/politics/001.txt\")\n",
+    "\n",
+    "# Preproces\n",
+    "d1w = preprocess(d1, stopwords)\n",
+    "d1w = d1w.distinct()\n",
+    "d2w = preprocess(d2, stopwords)\n",
+    "d2w = d2w.distinct()\n",
+    "\n",
+    "sim = jaccard(d1w, d2w)\n",
+    "\n",
+    "print(\"similarity \", sim)\n"
    ]
   },
   {
@@ -1350,15 +2188,59 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 27,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Predicted topic  business\n"
+     ]
+    }
+   ],
    "source": [
     "'''\n",
-    "**************************************************\n",
-    "    COMPLETE THE PROGRAM\n",
-    "**************************************************\n",
-    "'''"
+    "Classification function.\n",
+    "Takes in: RDD d of the preprocessed input document and RDDs of the preprocessed representative documents.\n",
+    "Returns: the predicted topic of the input document.\n",
+    "'''\n",
+    "def classify(d, representative):\n",
+    "    max = 0\n",
+    "    topic = \"null\"\n",
+    "    for r in representative:\n",
+    "            sim = jaccard(d, r[0])\n",
+    "            if sim > max :\n",
+    "                max = sim\n",
+    "                topic = r[1]\n",
+    "    return topic\n",
+    "\n",
+    "\n",
+    "# The stop words\n",
+    "stopwords = sc.textFile(\"./data/stopwords.txt\")\n",
+    "\n",
+    "'''\n",
+    "The representative documents.\n",
+    "Each item of this list is a pair (path, topic), associating a path of a document to the name of its topic.\n",
+    "'''\n",
+    "representative = [(\"./data/bbc/business/001.txt\", \"business\"), \n",
+    "                  (\"./data/bbc/entertainment/001.txt\", \"entertainment\"), \n",
+    "                  (\"./data/bbc/politics/001.txt\", \"politics\"), \n",
+    "                  (\"./data/bbc/sport/001.txt\", \"sport\"),\n",
+    "                  (\"./data/bbc/tech/001.txt\", \"tech\")]\n",
+    "\n",
+    "# The RRDs with the preprocessed representative documents \n",
+    "repwords = []\n",
+    "\n",
+    "# Pre-process the representative documents\n",
+    "for rep in representative:\n",
+    "    repwords.append((preprocess(sc.textFile(rep[0]), stopwords).distinct(),rep[1]))\n",
+    "    \n",
+    "\n",
+    "\n",
+    "# Classify a document.\n",
+    "topic = classify(preprocess(sc.textFile(\"./data/bbc/business/001.txt\"), stopwords).distinct(), repwords)\n",
+    "print(\"Predicted topic \", topic)"
    ]
   },
   {
@@ -1432,12 +2314,50 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "'''\n",
-    "**************************************************\n",
-    "    COMPLETE THE PROGRAM\n",
-    "**************************************************\n",
-    "'''"
+    "topics = ['business', 'entertainment', 'politics', 'sport', 'tech']\n",
+    "\n",
+    "# true positives for all topics\n",
+    "tp = {\"business\": 0, \"entertainment\": 0, \"politics\": 0, \"sport\":0, \"tech\":0}\n",
+    "# false positives for all topics\n",
+    "fp = {\"business\": 0, \"entertainment\": 0, \"politics\": 0, \"sport\":0, \"tech\":0}\n",
+    "# false negatives for all topics\n",
+    "fn = {\"business\": 0, \"entertainment\": 0, \"politics\": 0, \"sport\":0, \"tech\":0}\n",
+    "\n",
+    "print(\"Evaluating classifier...\")\n",
+    "for topic in topics:\n",
+    "    # Current directory\n",
+    "    cd = \"./data/bbc/\"+topic+\"/\"\n",
+    "    # For each document under the current topic\n",
+    "    for document in os.listdir(cd):\n",
+    "        # Get the name of the current document\n",
+    "        filename = cd + os.fsdecode(document)\n",
+    "        # This is to ensure with do not get any hidden file by mistake \n",
+    "        if not filename.endswith(\".txt\"):\n",
+    "            continue\n",
+    "        # classify the document\n",
+    "        predicted = classify(preprocess(sc.textFile(filename), stopwords).distinct(), repwords)\n",
+    "        if predicted == topic:\n",
+    "            tp[predicted] += 1\n",
+    "        else:\n",
+    "            fn[topic] += 1\n",
+    "            fp[predicted] += 1\n",
+    "\n",
+    "\n",
+    "for topic in topics:\n",
+    "    print(\"Class \", topic);\n",
+    "    precision = tp[topic] / (tp[topic] + fp[topic])\n",
+    "    recall = tp[topic] / (tp[topic] + fn[topic])\n",
+    "    fmeasure = 2 * precision * recall / (precision + recall)\n",
+    "    print(\"P = \", precision, \" R = \", recall, \" F = \", fmeasure)\n",
+    "    "
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
